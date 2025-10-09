@@ -19,10 +19,14 @@ jobs:
         with:
           root_file: shop-qr-sheet.tex
 
-      - name: Upload PDF and log as artifacts
+      - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: compiled
-          path: |
-            shop-qr-sheet.pdf
-            shop-qr-sheet.log
+          name: shop-qr-sheet-pdf
+          path: shop-qr-sheet.pdf
+
+      - name: Upload log as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: shop-qr-sheet-log
+          path: shop-qr-sheet.log

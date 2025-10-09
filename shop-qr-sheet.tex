@@ -21,44 +21,15 @@
 	\end{minipage}
 }
 
-\newcommand{\SizeTypeRow}[2]{
-	\LARGE\bfseries\MakeUppercase{#1} &
-	\QRCodeText{#2u#1} &
-	\QRCodeText{#2d#1} \\ \hline
-}
-
 \newcommand{\SizeRow}[2]{
 	\LARGE\bfseries\MakeUppercase{#1} &
 	\QRCodeText{#2#1} \\ \hline
 }
 
-\newcommand{\ColorTypePage}[2]{
-	\clearpage
-	\noindent
-	\begin{minipage}[t]{0.62\textwidth}
-	    \vspace{0cm} % aligns the top edges
-	    {\Huge\bfseries #1}
-	\end{minipage}%
-	\hfill
-	\begin{minipage}[t]{0.37\textwidth}
-	    \vspace{0cm}
-		\hfill
-		\adjustbox{max height=5cm}{\includegraphics{images/#2.png}}
-	\end{minipage}
-	\bigskip \\
-	\renewcommand{\arraystretch}{1.5}
-	\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|
-                              >{\centering\arraybackslash}X|
-                              >{\centering\arraybackslash}X|}
-		\hline
-		{\large\bfseries Размер / Вид} & {\large\bfseries Унисекс} & {\large\bfseries Дамска} \\ \hline
-		\SizeTypeRow{s}{#2}
-		\SizeTypeRow{m}{#2}
-		\SizeTypeRow{l}{#2}
-		\SizeTypeRow{xl}{#2}
-		\SizeTypeRow{xxl}{#2}
-		\SizeTypeRow{xxxl}{#2}
-	\end{tabularx}
+\newcommand{\SizeTypeRow}[2]{
+	\LARGE\bfseries\MakeUppercase{#1} &
+	\QRCodeText{#2u#1} &
+	\QRCodeText{#2d#1} \\ \hline
 }
 
 \newcommand{\ColorPage}[2]{
@@ -67,7 +38,7 @@
 	\begin{minipage}[t]{0.62\textwidth}
 	    \vspace{0cm} % aligns the top edges
 	    {\Huge\bfseries #1}
-	\end{minipage}%
+	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.37\textwidth}
 	    \vspace{0cm}
@@ -90,16 +61,86 @@
 	\end{tabularx}
 }
 
+\newcommand{\ColorTypePage}[2]{
+	\clearpage
+	\noindent
+	\begin{minipage}[t]{0.62\textwidth}
+	    \vspace{0cm} % aligns the top edges
+	    {\Huge\bfseries #1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.37\textwidth}
+	    \vspace{0cm}
+		\hfill
+		\adjustbox{max height=5cm}{\includegraphics{images/#2.png}}
+	\end{minipage}
+	\bigskip \\
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|
+                              >{\centering\arraybackslash}X|
+                              >{\centering\arraybackslash}X|}
+		\hline
+		{\large\bfseries Размер / Вид} & {\large\bfseries Унисекс} & {\large\bfseries Дамска} \\ \hline
+		\SizeTypeRow{s}{#2}
+		\SizeTypeRow{m}{#2}
+		\SizeTypeRow{l}{#2}
+		\SizeTypeRow{xl}{#2}
+		\SizeTypeRow{xxl}{#2}
+		\SizeTypeRow{xxxl}{#2}
+	\end{tabularx}
+}
+
+\newcommand{\Bandana}[2]{
+	\noindent
+	\begin{minipage}[t]{0.62\textwidth}
+	    \vspace{0cm} % aligns the top edges
+	    {\Huge\bfseries #1}
+		\smallskip \\
+		\smallskip \\
+		\setlength{\parindent}{2.5cm}
+		\indent
+		\QRCodeText{#2}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.37\textwidth}
+	    \vspace{0cm}
+		\hfill
+		\adjustbox{max height=5cm}{\includegraphics{images/#2.png}}
+	\end{minipage}
+	\bigskip \\
+	\bigskip \\
+}
+
+\newcommand{\HelpText}{
+	\large\begin{itemize}
+		\item За да смените количествата по поръчка, първо променете статуса на \emph{Pending payment},
+		направете промяната (добавяне/изтриване на продукт или промяна на количество),
+		след което върнете статуса обратно на \emph{Processing}, за да се появят бутоните за плащане/касов бон.
+		\item Ако намерите поръчката само по номера ѝ, питайте и за име или тел. номер, за да проверите
+		дали е правилния клиент.
+		\item Фискален бон за плащане в брой се издава само \textbf{след} получаване на парите и връщане на ресто.
+		\item Ако всичко се счупи, 0883 433 990.
+	\end{itemize}
+}
+
+\newcommand{\BandanasPage}{
+	\clearpage
+	\Bandana{Бандана OpenFest}{bof}
+	\Bandana{Бандана init Lab}{bil}
+	\HelpText
+}
+
 \begin{document}
 
+\ColorPage{Суичър --- син}{sbl}
+\ColorPage{Суичър --- зелен}{sgn}
+\ColorPage{Суичър --- син}{sbl}
 \ColorTypePage{Тениска --- тъмно синя}{tdbl}
 \ColorTypePage{Тениска --- светло синя}{tlbl}
 \ColorTypePage{Тениска --- бордо}{tbd}
 \ColorTypePage{Тениска --- лилава}{tpl}
 \ColorTypePage{Тениска --- розова}{tpk}
 \ColorTypePage{Mystery box}{m}
-\ColorPage{Суичър --- син}{sbl}
-\ColorPage{Суичър --- зелен}{sgn}
-\ColorPage{Суичър --- син}{sbl}
+\BandanasPage
 
 \end{document}

@@ -1,0 +1,32 @@
+name: Compile LaTeX to PDF
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+
+      - name: Compile LaTeX to PDF
+        run: |
+          pdflatex -interaction=nonstopmode shop-qr-sheet.tex
+
+      - name: Upload PDF and log as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled-pdf
+          path: |
+            shop-qr-sheet.pdf
+            shop-qr-sheet.log

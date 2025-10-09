@@ -1,0 +1,105 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[margin=1cm]{geometry}
+\usepackage[T2A]{fontenc} % Cyrillic
+\usepackage{graphicx} % enables image inclusion
+\usepackage[export]{adjustbox} % trim/clip graphics
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{qrcode}
+
+\overfullrule=5pt
+
+\pagecolor{white}
+\pagestyle{empty} % no page numbers
+
+\newcommand{\QRCodeText}[1]{
+	\begin{minipage}[c]{2.1cm}\centering
+		\vspace{0.6cm}
+		\qrcode[height=1.5cm]{#1}\\[0.3cm]{\large #1}
+		\vspace{0.6cm}
+	\end{minipage}
+}
+
+\newcommand{\SizeTypeRow}[2]{
+	\LARGE\bfseries\MakeUppercase{#1} &
+	\QRCodeText{#2u#1} &
+	\QRCodeText{#2d#1} \\ \hline
+}
+
+\newcommand{\SizeRow}[2]{
+	\LARGE\bfseries\MakeUppercase{#1} &
+	\QRCodeText{#2#1} \\ \hline
+}
+
+\newcommand{\ColorTypePage}[2]{
+	\clearpage
+	\noindent
+	\begin{minipage}[t]{0.62\textwidth}
+	    \vspace{0cm} % aligns the top edges
+	    {\Huge\bfseries #1}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.37\textwidth}
+	    \vspace{0cm}
+		\hfill
+		\adjustbox{max height=5cm}{\includegraphics{images/#2.png}}
+	\end{minipage}
+	\bigskip \\
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|
+                              >{\centering\arraybackslash}X|
+                              >{\centering\arraybackslash}X|}
+		\hline
+		{\large\bfseries Размер / Вид} & {\large\bfseries Унисекс} & {\large\bfseries Дамска} \\ \hline
+		\SizeTypeRow{s}{#2}
+		\SizeTypeRow{m}{#2}
+		\SizeTypeRow{l}{#2}
+		\SizeTypeRow{xl}{#2}
+		\SizeTypeRow{xxl}{#2}
+		\SizeTypeRow{xxxl}{#2}
+	\end{tabularx}
+}
+
+\newcommand{\ColorPage}[2]{
+	\clearpage
+	\noindent
+	\begin{minipage}[t]{0.62\textwidth}
+	    \vspace{0cm} % aligns the top edges
+	    {\Huge\bfseries #1}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.37\textwidth}
+	    \vspace{0cm}
+		\hfill
+		\adjustbox{max height=5cm}{\includegraphics{images/#2.png}}
+	\end{minipage}
+	\bigskip \\
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|
+                              >{\centering\arraybackslash}X|
+                              >{\centering\arraybackslash}X|}
+		\hline
+		{\large\bfseries Размер} & Код \\ \hline
+		\SizeRow{s}{#2}
+		\SizeRow{m}{#2}
+		\SizeRow{l}{#2}
+		\SizeRow{xl}{#2}
+		\SizeRow{xxl}{#2}
+		\SizeRow{xxxl}{#2}
+	\end{tabularx}
+}
+
+\begin{document}
+
+\ColorTypePage{Тениска --- тъмно синя}{tdbl}
+\ColorTypePage{Тениска --- светло синя}{tlbl}
+\ColorTypePage{Тениска --- бордо}{tbd}
+\ColorTypePage{Тениска --- лилава}{tpl}
+\ColorTypePage{Тениска --- розова}{tpk}
+\ColorTypePage{Mystery box}{m}
+\ColorPage{Суичър --- син}{sbl}
+\ColorPage{Суичър --- зелен}{sgn}
+\ColorPage{Суичър --- син}{sbl}
+
+\end{document}

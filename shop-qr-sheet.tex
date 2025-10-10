@@ -15,7 +15,7 @@
 \pagestyle{empty} % no page numbers
 
 \newcommand{\QRCodeText}[1]{
-	\begin{minipage}[c]{2.1cm}\centering
+	\begin{minipage}[c]{2.5cm}\centering
 		\vspace{0.6cm}
 		\qrcode[height=1.5cm]{#1}\\[0.3cm]{\large #1}
 		\vspace{0.6cm}
@@ -114,12 +114,14 @@
 
 \newcommand{\HelpText}{
 	\large\begin{itemize}
+		\item Фискален бон за плащане в брой се издава само \textbf{след} получаване на парите и връщане на ресто.
+		\item Ако намерите поръчката само по номера ѝ, питайте и за име или тел. номер, за да проверите
+		дали е правилния клиент.
 		\item За да смените количествата по поръчка, първо променете статуса на \emph{Pending payment},
 		направете промяната (добавяне/изтриване на продукт или промяна на количество),
 		след което върнете статуса обратно на \emph{Processing}, за да се появят бутоните за плащане/касов бон.
-		\item Ако намерите поръчката само по номера ѝ, питайте и за име или тел. номер, за да проверите
-		дали е правилния клиент.
-		\item Фискален бон за плащане в брой се издава само \textbf{след} получаване на парите и връщане на ресто.
+		\item Ако клиентът се откаже от поръчката, или стане 13:00 ч в неделя, се сменя статуса от \emph{Processing}
+		на \emph{Cancelled} и това ще освободи наличностите.
 		\item Ако всичко се счупи, 0883 433 990.
 	\end{itemize}
 }
@@ -133,15 +135,25 @@
 
 \begin{document}
 
-\ColorPage{Суичър --- син}{sbl}
-\ColorPage{Суичър --- зелен}{sgn}
-\ColorPage{Суичър --- сив}{sgy}
-\ColorTypePage{Тениска --- тъмно синя}{tdbl}
-\ColorTypePage{Тениска --- светло синя}{tlbl}
-\ColorTypePage{Тениска --- бордо}{tbd}
-\ColorTypePage{Тениска --- лилава}{tpl}
-\ColorTypePage{Тениска --- розова}{tpk}
+\ColorPage{Суичър OpenFest 2025 син}{sbl}
+\ColorPage{Суичър OpenFest 2025 зелен}{sgn}
+\ColorPage{Суичър OpenFest 2025 сив}{sgy}
+\ColorTypePage{Тениска OpenFest 2025 тъмно синя}{tdbl}
+\ColorTypePage{Тениска OpenFest 2025 светло синя}{tlbl}
+\ColorTypePage{Тениска OpenFest 2025 бордо}{tbd}
+\ColorTypePage{Тениска OpenFest 2025 лилава}{tpl}
+\ColorTypePage{Тениска OpenFest 2025 розова}{tpk}
 \ColorTypePage{Mystery box}{m}
+\ColorPage{Тениска VarnaLab зелена}{tvlgn}
+\ColorPage{Тениска VarnaLab черна}{tvlbk}
+\ColorPage{Тениска VarnaLab тъмно зелена}{tvldgn}
+\ColorPage{Тениска VarnaLab тъмно сива}{tvldgy}
+\ColorPage{Тениска VarnaLab тъмно синя}{tvldbl}
+\ColorPage{Тениска VarnaLab тъмно лилава}{tvldpl}
+\ColorPage{Тениска VarnaLab тъмно червена}{tvldrd}
+\ColorPage{Тениска VarnaLab оранжева}{tvlor}
+\ColorPage{Тениска VarnaLab жълта}{tvlyl}
+\ColorPage{Тениска VarnaLab бяла}{tvlwh}
 \BandanasPage
 
 \end{document}
